@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 11</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <form class="form" id="search-form">
-      <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images...">
-      <button id="load-more" type="submit">Search</button>
-    </form>
-    <div id="loader" class="loader hidden"></div>
-    <p class="loading-text hidden">Loading images, please wait...</p>
-    <ul class="gallery" id="image-gallery"></ul>
 
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework 11</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
 
-    <script type="module" src="./main.js"></script>
-  </body>
+<body>
+  <form class="form" id="search-form">
+    <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images...">
+    <button id="search-button" type="submit">Search</button>
+  </form>
+  <ul class="gallery" id="image-gallery"></ul>
+  <button id="load-more" class="hidden">Load more</button>
+  <div id="loader" class="loader hidden"></div>
+  <p class="loading-text hidden">Loading images, please wait...</p>
+  <script type="module" src="./main.js"></script>
+</body>
+
 </html>
