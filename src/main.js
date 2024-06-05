@@ -1,4 +1,3 @@
-import axios from "axios";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import SimpleLightbox from "simplelightbox";
@@ -15,6 +14,11 @@ const loadMoreBtn = document.querySelector("#load-more");
 let currentPage = 1;
 let currentQuery = "";
 let totalHits = 0;
+
+const lightbox = new SimpleLightbox('.gallery a', {
+                captionsData: "alt",
+                captionDelay: 250
+            })
 
 formEl.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -46,10 +50,7 @@ formEl.addEventListener("submit", async (event) => {
         } else {
             const markup = imageTemplate(data.hits);
             imagesGallery.innerHTML = markup;
-            const lightbox = new SimpleLightbox('.gallery a', {
-                captionsData: "alt",
-                captionDelay: 250
-            }).refresh();
+            lightbox.refresh();
 
             if (data.hits.length < totalHits) {
                 loadMoreBtn.classList.remove('hidden');
@@ -75,10 +76,7 @@ loadMoreBtn.addEventListener("click", async () => {
         const data = await searchImage(currentQuery, currentPage);
         const markup = imageTemplate(data.hits);
         imagesGallery.insertAdjacentHTML('beforeend', markup);
-        const lightbox = new SimpleLightbox('.gallery a', {
-            captionsData: "alt",
-            captionDelay: 250
-        }).refresh();
+        lightbox.refresh();
 
         const loadedImagesCount = imagesGallery.querySelectorAll('.gallery-item').length;
         if (loadedImagesCount >= totalHits) {
